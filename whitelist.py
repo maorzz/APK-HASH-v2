@@ -13,7 +13,7 @@ import tkinter as tk
 import sys
 import count
 from tkinter import filedialog
-
+from PIL import ImageTk, Image
 from tkinter.filedialog import askopenfilename
 
 
@@ -22,7 +22,16 @@ from tkinter.filedialog import askopenfilename
 root = Tk()
 root.title('פורמט אפליקצייה למייבס')
 root.iconbitmap('zoro.ico')
-root.geometry("250x150")
+app_width = 250
+app_height = 250
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+x = (screen_width / 2) - (app_width / 2)
+y = (screen_height / 2) - (app_height / 2)
+root.geometry(f'{app_width}x{app_height}+{int(x)}+{int(y)}')
+my_img = ImageTk.PhotoImage(Image.open("logo.jpg"))
+my_label = Label(image=my_img)
+my_label.pack()
 
 
 def browse_file():
@@ -107,8 +116,14 @@ print(result)
 # G-U-I
 root = Tk()
 root.title('פורמט אפליקצייה למייבס')
+app_width = 500
+app_height = 500
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+x = (screen_width / 2) - (app_width / 2)
+y = (screen_height / 2) - (app_height / 2)
+root.geometry(f'{app_width}x{app_height}+{int(x)}+{int(y)}')
 root.iconbitmap('zoro.ico')
-root.geometry("700x450")
 
 
 def open_txt():
