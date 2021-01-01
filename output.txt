@@ -1,0 +1,48 @@
+<package
+label='com.google.android.contacts'
+hash="bb7f7d64d04dbef20d5a9ac92f62d3540b70852d3f65950f8a83377c03059a32"
+id:'Oxhumana nabo'
+version:'1'
+networkMode:"private"
+</msiApplicationWhitelist>
+
+<package
+label='com.google.android.contacts'
+hash="bb7f7d64d04dbef20d5a9ac92f62d3540b70852d3f65950f8a83377c03059a32"
+id:'Oxhumana nabo'
+version:'1'
+networkMode:"private"
+</msiApplicationWhitelist>
+
+<package
+label='com.google.android.contacts'
+hash="bb7f7d64d04dbef20d5a9ac92f62d3540b70852d3f65950f8a83377c03059a32"
+id:'Oxhumana nabo'
+version:'1'
+networkMode:"private"
+</msiApplicationWhitelist>
+
+<package
+label='com.google.android.contacts'
+hash="bb7f7d64d04dbef20d5a9ac92f62d3540b70852d3f65950f8a83377c03059a32"
+id:'Oxhumana nabo'
+version:'1'
+networkMode:"private"
+</msiApplicationWhitelist>
+
+<package
+label='com.google.android.contacts'
+hash="bb7f7d64d04dbef20d5a9ac92f62d3540b70852d3f65950f8a83377c03059a32"
+id:'Oxhumana nabo'
+version:'1'
+networkMode:"private"
+</msiApplicationWhitelist>
+
+<package
+label='com.google.android.contacts'
+hash="bb7f7d64d04dbef20d5a9ac92f62d3540b70852d3f65950f8a83377c03059a32"
+id:'Oxhumana nabo'
+version:'1'
+networkMode:"private"
+</msiApplicationWhitelist>
+
