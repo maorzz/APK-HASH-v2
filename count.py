@@ -27,6 +27,6 @@ def word_count(fname, word_list, punctaction):
     return count_w
 
 
-yoter = (word_count('output.txt', ["<package"], []))
+yoter = (word_count('whitelist.xml', ["<package"], []))
 appsum = yoter.get("<package")
 print(appsum)

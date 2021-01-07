@@ -70,7 +70,7 @@ def apk():
 
 # get apk Label
 def label():
-    command = 'aapt.exe dump badging ' + file_path + '| findstr application-label-zu:'
+    command = 'aapt.exe dump badging ' + file_path + '| findstr package:'
     result = ""
     p = subprocess.Popen(command, stdout=subprocess.PIPE,
                          stderr=subprocess.PIPE,
@@ -78,8 +78,26 @@ def label():
     (output, err) = p.communicate()
     output = str(output, encoding='utf8')
     if output != "":
-        result = output.split("'")[1]
+        result = output.split()[3][13:-1]
     return result
+
+
+
+
+def version():
+    command = 'aapt.exe dump badging ' + file_path + '| findstr package:'
+    result = ""
+    p = subprocess.Popen(command, stdout=subprocess.PIPE,
+                         stderr=subprocess.PIPE,
+                         stdin=subprocess.PIPE, shell=True)
+    (output, err) = p.communicate()
+    output = str(output, encoding='utf8')
+    if output != "":
+        result = output.split()[2][13:-1]
+    return result
+
+
+    
 
 
 # TAKE APK AND CONVERT TO HASH
@@ -99,16 +117,17 @@ with open(file_path, "rb") as f:
 id = label()
 hash = sha256_hash.hexdigest()
 apkname = apk()
+versionc = version()
 
 # תוצאה
-result = ("<package" + "\n" + "label=" + f"'{apkname}'" + "\n"
+result = ("<package" + "\n" + "label=" + f"'{id}'" + "\n"
 
           "hash=" + f'"{hash}"' + "\n" +
 
-          "id:" + f"'{id}'" + "\n" + "version:'1'" + "\n" + 'networkMode:"private"' + "\n" + "</msiApplicationWhitelist>"+"\n")
+          "id=" + f"'{apkname}'" + "\n" + f"version='{versionc}'" + "\n" + 'networkMode="private"/>' + "\n" + "</msiApplicationWhitelist>"+"\n")
 
 # saveing file
-f = open("output.txt", 'a')
+f = open("whitelist.xml", 'a')
 sys.stdout = f
 print(result)
 
@@ -127,7 +146,7 @@ root.iconbitmap('zoro.ico')
 
 
 def open_txt():
-    text_file = open("output.txt", 'r')
+    text_file = open("whitelist.xml", 'r')
     stuff = text_file.read()
     my_text.insert(END, stuff)
     open_button.configure(state=DISABLED)
