@@ -82,8 +82,6 @@ def label():
     return result
 
 
-
-
 def version():
     command = 'aapt.exe dump badging ' + file_path + '| findstr package:'
     result = ""
@@ -95,9 +93,6 @@ def version():
     if output != "":
         result = output.split()[2][13:-1]
     return result
-
-
-    
 
 
 # TAKE APK AND CONVERT TO HASH
@@ -120,7 +115,7 @@ apkname = apk()
 versionc = version()
 
 # תוצאה
-result = ("<package" + "\n" + "label=" + f"'{id}'" + "\n"
+result = ("\n" + "<package" + "\n" + "label=" + f"'{id}'" + "\n"
 
           "hash=" + f'"{hash}"' + "\n" +
 
@@ -168,6 +163,18 @@ open_button.pack(pady=20)
 num = Button(root,   text='   אפליקציות = ' + str(count.appsum) + ' (מוגבל ל52 אפליקציות)', command=exit,
              font=("Helvetica", 16), fg='#8B0000')
 num.pack(pady=20)
+
+# deletelastline
+deletelastline = open("whitelist.xml", "r")
+d = deletelastline.read()
+deletelastline.close()
+m = d.split("\n")
+s = "\n".join(m[:-3])
+deletelastline = open("whitelist.xml", "w")
+for i in range(len(s)):
+    deletelastline.write(s[i])
+deletelastline.close()
+
 
 f.close()
 root.mainloop()
